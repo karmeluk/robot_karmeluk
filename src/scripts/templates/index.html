@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Laser node</title>
+
+</head>
+<script type="text/javascript" src="{{
+    url_for('static', filename='templates/jquery.min.js')
+    }}">
+</script>
+<script type="text/javascript" src="{{
+    url_for('static', filename='templates/highcharts.js')
+    }}">
+</script>
+<script type="text/javascript" src="{{
+    url_for('static', filename='templates/highcharts-more.js')
+    }}">
+</script>
+<script type="text/javascript" src="{{
+    url_for('static', filename='templates/map.js')
+    }}">
+</script>
+<body>
+
+<div id={{ chartID|safe }} class="chart"  style="min-width: 310px; height: 400px; max-width: 600px; margin: 0 auto"></div>
+<script>
+    var chart_id = {{ chartID|safe }}
+    var title = {{ title|safe }}
+    var subtitle = {{ subtitle|safe }}
+    var xAxis = {{ xAxis|safe }}
+    var yAxis = {{ yAxis|safe }}
+    var legend = {{ legend|safe }}
+    var series = {{ series|safe }}
+    var tooltip = {{ tooltip|safe }}
+</script>
+
+
+
+
+</body>
+</html>
