@@ -27,7 +27,7 @@ class LaserListener(Thread):
         mapa = self.zmq_socket.recv()
         print "received: ", mapa
         sleep(1)
-        self.zmq_socket.send("from %s" % self.zmq_port)
+        self.zmq_socket.send("got it! port used: %s" % self.zmq_port)
         return mapa
 
 
