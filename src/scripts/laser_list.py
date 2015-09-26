@@ -16,7 +16,8 @@ zmq_port = "5555"
 zmq_context = zmq.Context()
 print "Connecting to server..."
 zmq_socket = zmq_context.socket(zmq.REQ)
-zmq_socket.connect ("tcp://localhost:%s" % zmq_port)
+# zmq_socket.setsockopt(zmq.CONFLATE, 1)
+zmq_socket.connect("tcp://localhost:%s" % zmq_port)
 
 geometry = laser_geometry.LaserProjection()
 
@@ -27,7 +28,8 @@ def generatemap(scan):
     gen = pc2.read_points(cloud, skip_nans=True, field_names=("x", "y", "z"))
     for point in gen:
         x, y, z = point
-        mapa_pc2.append([x, y])
+        # TODO: fix x,y
+        mapa_pc2.append([y, x])
 
     return mapa_pc2
 
